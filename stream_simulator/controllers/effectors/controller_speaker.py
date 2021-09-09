@@ -84,26 +84,34 @@ class SpeakerController(BaseThing):
         self.blocked = False
 
         if self.info["mode"] == "real":
-            try:
-                from pidevices import SafeSpeaker
-                self.speaker = SafeSpeaker(dev_name = self.conf["dev_name"],
-                                           volume = 50,
-                                           channels = self.conf["channels"],
-                                           framerate = self.conf["framerate"],
-                                           name = self.name,
-                                           max_data_length = self.conf["max_data_length"],
-                                           restart_cb = self.initialize_google_speech2text)
-            except ImportError as e:
-                from pidevices import Speaker
-                self.speaker = Speaker(dev_name = self.conf["dev_name"],
-                                       volume = 50,
-                                       channels = self.conf["channels"],
-                                       name = self.name,
-                                       max_data_length = self.conf["max_data_length"])
-                self.logger.warning("Using Default Speaker Driver")
-            else:
-                self.speaker.start()
-                self.logger.warning("Using Safe Speaker Driver")
+            # try:
+            #     from pidevices import SafeSpeaker
+            #     self.speaker = SafeSpeaker(dev_name = self.conf["dev_name"],
+            #                                volume = 50,
+            #                                channels = self.conf["channels"],
+            #                                framerate = self.conf["framerate"],
+            #                                name = self.name,
+            #                                max_data_length = self.conf["max_data_length"],
+            #                                restart_cb = self.initialize_google_speech2text)
+            # except ImportError as e:
+            #     from pidevices import Speaker
+            #     self.speaker = Speaker(dev_name = self.conf["dev_name"],
+            #                            volume = 50,
+            #                            channels = self.conf["channels"],
+            #                            name = self.name,
+            #                            max_data_length = self.conf["max_data_length"])
+            #     self.logger.warning("Using Default Speaker Driver")
+            # else:
+            #     self.speaker.start()
+            #     self.logger.warning("Using Safe Speaker Driver")
+
+            from pidevices import Speaker
+            self.speaker = Speaker(dev_name = self.conf["dev_name"],
+                                    volume = 50,
+                                    channels = self.conf["channels"],
+                                    name = self.name,
+                                    max_data_length = self.conf["max_data_length"])
+            self.logger.warning("Using Default Speaker Driver")
 
             if self.info["speak_mode"] == "espeak":
                 from espeakng import ESpeakNG

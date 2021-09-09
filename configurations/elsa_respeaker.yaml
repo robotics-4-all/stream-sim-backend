@@ -28,14 +28,6 @@ robots:
             channels: 1
             framerate: 44100
             max_data_length: 10
-      # gstreamer_server:
-      #   -
-      #     orientation: 0
-      #     place: CENTER
-      #     sensor_configuration:
-      #       alsa_device: "Mic"
-      #       hosts: ["127.0.0.1"]
-      #       ports: ["12333"]
       camera:
         -
           orientation: 0
@@ -54,5 +46,7 @@ robots:
           name: "elsa_speaker"
           sensor_configuration:
             dev_name: "Array"
+            framerate: 44100
+            channels:  1
             card_index: 1
             max_data_length: 10
