@@ -6,7 +6,7 @@ After=multi-user.target network.target redis-server.service
 [Service]
 User=pi
 Type=idle
-ExecStart=/usr/bin/python3 -u main.py elsa
+ExecStart=/usr/bin/python3 -u main.py elsa_respeaker
 WorkingDirectory=/home/pi/elsa-packages/stream-sim-backend/bin
 StandardOutput=inherit
 StandardError=inherit
