@@ -91,9 +91,9 @@ class MicrophoneController(BaseThing):
                 h["type"] = i
                 self.actors.append(k)
 
-        from pidevices import Microphone
-        self.sensor = Microphone(dev_name=self.conf["dev_name"],
-                                channels=self.conf["channels"],
+        from pidevices import PyAudioMic
+        self.sensor = PyAudioMic(channels=self.conf["channels"],
+                                framerate=self.conf["framerate"],
                                 name=self.name,
                                 max_data_length=self.conf["max_data_length"])
         self.logger.warning("Using Default Microphone Driver")
@@ -257,7 +257,7 @@ class MicrophoneController(BaseThing):
 
         else: # The real deal
             try:
-                self.sensor.async_read(secs = duration, volume = 100, framerate = self.conf["framerate"])
+                self.sensor.async_read(secs = duration)
                 
                 while not self.sensor.recording:
                     time.sleep(0.1)
@@ -280,7 +280,7 @@ class MicrophoneController(BaseThing):
                 if record:
                     ret["record"] = base64.b64encode(record).decode("ascii")
             except Exception as e:
-                self.logger.error("{} problem in driver during recording".format(self.name))
+                self.logger.error("{} problem in driver during recording {}".format(self.name, e))
 
         self.logger.info("{} recording finished".format(self.name))
         self.blocked = False
@@ -309,7 +309,7 @@ class MicrophoneController(BaseThing):
         
         if self.info["mode"] == "real": # The real deal
             try:
-                self.sensor.async_read(secs = duration, volume = 100, framerate = self.conf["framerate"])
+                self.sensor.async_read(secs = duration)
 
                 while not self.sensor.recording:
                     time.sleep(0.1)
