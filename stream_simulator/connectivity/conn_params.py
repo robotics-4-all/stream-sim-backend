@@ -14,7 +14,7 @@ class ConnParams:
             "username": "bot",
             "password": "b0t"
         },
-        "host": "tektrain-cloud.ddns.net",
+        "host": "localhost",
         "port": 5672,
         "vhost": "sim"
     }
@@ -26,7 +26,7 @@ class ConnParams:
             conn_params = ConnectionParameters()
             conn_params.credentials.username = ConnParams.AMQP_SETTINGS["credentials"]["username"]
             conn_params.credentials.password = ConnParams.AMQP_SETTINGS["credentials"]["password"]
-            
+
             conn_params.host = ConnParams.AMQP_SETTINGS["host"]
             conn_params.port = ConnParams.AMQP_SETTINGS["port"]
             conn_params.vhost = ConnParams.AMQP_SETTINGS["vhost"]
