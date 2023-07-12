@@ -5,18 +5,18 @@ class ConnParams:
     type = "redis"
 
     REDIS_SETTINGS = {
-        "host": "localhost",
+        "host": "tektrain-redis",
         "port": 6379
     }
 
     AMQP_SETTINGS = {
         "credentials": {
-            "username": "bot",
-            "password": "b0t"
+            "username": "ody",
+            "password": "r4a123"
         },
-        "host": "localhost",
+        "host": "rabbitmq-broker",
         "port": 5672,
-        "vhost": "sim"
+        "vhost": "/"
     }
 
     @staticmethod

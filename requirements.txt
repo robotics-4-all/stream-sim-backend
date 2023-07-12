@@ -1,9 +1,13 @@
 redis
-time
-json
-logging
+# time # belongs to standard library 3.7
+# json # belongs to standard library 3.7
+# logging # belongs to standard library 3.7
 pyyaml
 numpy
 wave
 pillow
 qrcode[pil]
+colorama
+opencv-python==4.0.0.21
+# setuptools
+# importlib
