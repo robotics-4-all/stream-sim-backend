@@ -6,7 +6,7 @@ from commlib.transports.amqp import ConnectionParameters
 conn_params = ConnectionParameters()
 conn_params.credentials.username = 'bot'
 conn_params.credentials.password = 'b0t'
-conn_params.host = 'tektrain-cloud.ddns.net'
+conn_params.host = 'tektrain-platform.issel.ee.auth.gr'
 conn_params.port = 5672
 conn_params.vhost = "sim"
 
