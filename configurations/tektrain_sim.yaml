@@ -2,7 +2,7 @@ amqp:
     credentials:
       username: "bot"
       password: "b0t"
-    host: "tektrain-cloud.ddns.net"
+    host: "tektrain-platform.issel.ee.auth.gr "
     port: 5672
     vhost: "sim"
 
