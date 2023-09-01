@@ -16,7 +16,7 @@ class ConnParams:
         },
         "host": "rabbitmq-broker",
         "port": 5672,
-        "vhost": "/"
+        "vhost": "sim"
     }
 
     @staticmethod
