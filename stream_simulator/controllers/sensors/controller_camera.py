@@ -9,6 +9,7 @@ import threading
 import random
 import cv2
 import os
+from os import path
 from os.path import expanduser
 import base64
 
@@ -371,7 +372,8 @@ class CameraController(BaseThing):
                 except Exception as e:
                     self.logger.error(f"CameraController: Error with text image generation: {str(e)}")
 
-            im = cv2.imread(dirname + '/resources/' + img)
+            img_path = path.join(dirname, 'resources', img)
+            im = cv2.imread(img_path)
             im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
             image = cv2.resize(im, dsize=(width, height))
             data = [int(d) for row in image for c in row for d in c]

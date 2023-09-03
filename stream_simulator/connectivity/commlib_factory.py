@@ -72,7 +72,8 @@ class CommlibFactory:
         )
         ret = module.Publisher(
             conn_params = ConnParams.get(broker),
-            topic = topic
+            topic = topic,
+            debug=False
         )
         CommlibFactory.inform(broker, topic, "Publisher")
         CommlibFactory.stats[broker]['publishers'] += 1
@@ -87,7 +88,8 @@ class CommlibFactory:
         ret = module.Subscriber(
             conn_params = ConnParams.get(broker),
             topic = topic,
-            on_message = callback
+            on_message = callback,
+            debug=False
         )
         CommlibFactory.inform(broker, topic, "Subscriber")
         CommlibFactory.stats[broker]['subscribers'] += 1
@@ -102,7 +104,8 @@ class CommlibFactory:
         ret = module.RPCService(
             conn_params = ConnParams.get(broker),
             on_request = callback,
-            rpc_name = rpc_name
+            rpc_name = rpc_name,
+            debug=False
         )
         CommlibFactory.inform(broker, rpc_name, "RPCService")
         CommlibFactory.stats[broker]['rpc servers'] += 1
@@ -116,7 +119,8 @@ class CommlibFactory:
         )
         ret = module.RPCClient(
             conn_params = ConnParams.get("redis"),
-            rpc_name = rpc_name
+            rpc_name = rpc_name,
+            debug=False
         )
         CommlibFactory.inform(broker, rpc_name, "RPCClient")
         CommlibFactory.stats[broker]['rpc clients'] += 1
@@ -131,7 +135,8 @@ class CommlibFactory:
         ret = module.ActionServer(
             conn_params = ConnParams.get(broker),
             on_goal = callback,
-            action_name = action_name
+            action_name = action_name,
+            debug=False
         )
         CommlibFactory.inform(broker, action_name, "ActionServer")
         CommlibFactory.stats[broker]['action servers'] += 1
@@ -145,7 +150,8 @@ class CommlibFactory:
         )
         ret = module.ActionClient(
             conn_params = ConnParams.get(broker),
-            action_name = action_name
+            action_name = action_name,
+            debug=False
         )
         CommlibFactory.inform(broker, action_name, "ActionClient")
         CommlibFactory.stats[broker]['action clients'] += 1
