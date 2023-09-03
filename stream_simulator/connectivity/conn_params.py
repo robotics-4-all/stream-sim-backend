@@ -11,8 +11,8 @@ class ConnParams:
 
     AMQP_SETTINGS = {
         "credentials": {
-            "username": "ody",
-            "password": "r4a123"
+            "username": "simbot",
+            "password": "simbot"
         },
         "host": "rabbitmq-broker",
         "port": 5672,
