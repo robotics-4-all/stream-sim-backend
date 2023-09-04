@@ -1,9 +1,9 @@
 redis
-time
-json
-logging
 pyyaml
 numpy
 wave
 pillow
 qrcode[pil]
+colorama
+scipy
+opencv-python==4.0.0.21

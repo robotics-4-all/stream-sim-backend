@@ -5,16 +5,16 @@ class ConnParams:
     type = "redis"
 
     REDIS_SETTINGS = {
-        "host": "localhost",
+        "host": "tektrain-redis",
         "port": 6379
     }
 
     AMQP_SETTINGS = {
         "credentials": {
-            "username": "bot",
-            "password": "b0t"
+            "username": "simbot",
+            "password": "simbot"
         },
-        "host": "tektrain-cloud.ddns.net",
+        "host": "rabbitmq-broker",
         "port": 5672,
         "vhost": "sim"
     }
@@ -26,7 +26,7 @@ class ConnParams:
             conn_params = ConnectionParameters()
             conn_params.credentials.username = ConnParams.AMQP_SETTINGS["credentials"]["username"]
             conn_params.credentials.password = ConnParams.AMQP_SETTINGS["credentials"]["password"]
-            
+
             conn_params.host = ConnParams.AMQP_SETTINGS["host"]
             conn_params.port = ConnParams.AMQP_SETTINGS["port"]
             conn_params.vhost = ConnParams.AMQP_SETTINGS["vhost"]
