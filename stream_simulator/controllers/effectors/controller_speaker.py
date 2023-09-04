@@ -377,6 +377,8 @@ class SpeakerController(BaseThing):
         return ret
 
     def set_global_volume(self):
+        if self.info["mode"] != "real":
+            return
         try:
             self.speaker.volume = int(self.global_volume)
 
