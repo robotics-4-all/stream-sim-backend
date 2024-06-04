@@ -1,5 +1,4 @@
 redis
-time
 json
 logging
 pyyaml
