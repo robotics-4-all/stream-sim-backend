@@ -1,6 +1,4 @@
 redis
-json
-logging
 pyyaml
 numpy
 wave
